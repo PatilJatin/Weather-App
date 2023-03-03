@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        .current-tab{
+            color: black;
+            background-color: rgb(248, 245, 245);
+            border-radius: 20px;
+        }
+        .active{
+            display: flex;
+        }
+        .weatherInfo{
+
+        }
+        .grant-loc-container{
+
+        }
+        .loadingContainer{
+
+        }
+        .weatherInfo{
+            
+        }
+    </style>
+    <title>Weather App | Jatin</title>
+</head>
+<body>
+   <section class="w-[100vw] h-[100vh] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-16 text-white">
+        <div class="container m-auto w-[90%] h-[100%] flex flex-col justify-center items-center  bg-neutral-800 p-2">
+             <h1 class="text-4xl ">Weather App</h1>
+             <div class="tab-container flex justify-around items-center rounded-2xl w-[50%] m-2 mb-8 bg-green-600 h-14 ">
+                <div class="tab text-xl p-2" id ="data-userWeather">Your Weather</div>
+                <div class="tab text-xl p-2" id ="data-searchWeather">Search Weather</div>
+             </div>
+
+             <div class="details w-[50%]">
+
+                <!-- grant location -->
+                <div class="grant-loc-container flex flex-col  items-center gap-4 hidden">
+                    <div class="w-[25%] object-cover"><img src="./images/location-icon.jpg" class="rounded-full bg-green-600" alt="" loading="lazy"></div>
+                    <p class="text-2xl">Grant Location Access</p>
+                    <p class="text-xl">Allow Access  to get weather Information</p>
+                    <button class="btn bg-red-600 p-4" id ="data-grantAccess">Grant Access</button>
+                </div>
+
+                <!-- search form -->
+                <form class="form-container hidden text-black h-[35px]" id ="data-searchForm">
+                    <input class = "w-full" placeholder="Search for City..." id ="data-searchInput">
+                    <button class="btn object-fit rounded-full w-[10%]">
+                        <img class="h-[100%]" src="./images/search-icon.png" alt="" width="50" height="50">
+                    </button>
+                </form>
+
+                <!-- Loading screen -->
+                <div class="loadingContainer flex justify-center items-center hidden">
+                    <img src="./images/loading.gif" width="100" height="100" alt="">
+                </div>
+
+                <!-- show weather details -->
+                <div class="weatherInfo w-full flex flex-col justify-center items-center gap-4 mt-2 hidden">
+                    <!-- cityname and flag -->
+                    <div class="name flex items-center gap-1">
+                        <p class="text-xl">City: <spam id ="data-cityName"></spam></p>
+                        <img id ="data-countryName"  alt="countryName" width="30" height="30">
+                    </div>
+
+                    <!-- weather desc -->
+                    
+                    <p class="text-xl">Description: <spam id ="data-weatherDescribe"></spam></p>
+                    <!-- weather icons -->
+                    <img id ="data-weatherIcon" alt="Weather icons" width="70" height="70">
+                    <!-- teamperture -->
+                    <p class="text-xl">Teamperture🌡️: <spam id ="data-temp"></spam> </p>
+                    <!-- cards -->
+                    <div class="cards flex justify-around w-full">
+                        <div class="card1 border rounded-md flex flex-col items-center gap-2 text-black bg-white p-2 basis-1/4">
+                            <div class="h-1/3"><img src="./images/windSpeed.png" alt="" width="50" height="50"></div>
+                            <p class="text-lg">WindSpeed🌬️</p>
+                            <p class="text-xl" id ="data-windSpeed"></p>
+                        </div>
+                        <div class="card1 border rounded-md flex flex-col items-center gap-2 text-black bg-white p-2 basis-1/4">
+                            <div class="h-1/3"><img src="./images/humidityIcon.png" alt="" width="50" height="50"></div>
+                            <p class="text-xl">Humidity 💧</p>
+                            <p class="text-xl" id ="data-Humidity"> </p>
+                        </div>
+                        <div class="card1 border rounded-md flex flex-col items-center gap-2 text-black bg-white p-2 basis-1/4">
+                            <div class="h-1/3"><img src="./images/cloudIcon.png" alt="" width="50" height="50"></div>
+                            <p class="text-xl">Clouds ☁️</p>
+                            <p class="text-xl" id ="data-Clouds"></p>
+                        </div>
+                    </div>
+
+                </div>
+             </div>
+        </div>
+   </section>
+    <script src="./app.js"></script>
+</body>
+</html>
